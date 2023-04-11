@@ -4,6 +4,7 @@ module.exports = {
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
+    darkMode:'class',
     theme: {
         extend: {
             fontFamily: {
@@ -11,6 +12,7 @@ module.exports = {
             },
             boxShadow: {
                 secondary: '10px 10px 20px rgba(2, 2, 2, 0.25)',
+                primary:'0 10px 10px rgba(0,0,0,0.25)'
             },
         },
     },

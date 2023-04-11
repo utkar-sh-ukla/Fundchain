@@ -107,7 +107,7 @@ const CampaignDetails = () => {
                 <div className="flex-1">
                     <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>
 
-                    <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
+                    <div className="mt-[20px] flex flex-col p-4 shadow-primary bg-[#f0f0f0] dark:bg-[#1c1c24] rounded-[10px]">
                         <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#808191]">
                             Fund the campaign
                         </p>
@@ -121,8 +121,8 @@ const CampaignDetails = () => {
                                 onChange={(e) => setAmount(e.target.value)}
                             />
 
-                            <div className="my-[20px] p-4 bg-[#13131a] rounded-[10px]">
-                                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back
+                            <div className="my-[20px] p-4 bg-[#CCD5AE] dark:bg-[#13131a] rounded-[10px]">
+                                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-[#13131a] dark:text-white">Back
                                     it because you believe in it.</h4>
                                 <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support
                                     the project for no reward, just because it speaks to you.</p>
