@@ -7,7 +7,7 @@ import {EditionMetadataWithOwnerOutputSchema} from '@thirdweb-dev/sdk';
 const StateContext = createContext();
 
 export const StateContextProvider = ({children}) => {
-	const {contract} = useContract('0x46fB6Ab955BcBB70671090655d4EDfD2113411B7');
+	const {contract} = useContract('0xf8d9C2751672807bF4D11608A901A6a06B5610D2');
     const {mutateAsync: createCampaign} = useContractWrite(contract, 'createCampaign');
 
     const address = useAddress();
@@ -51,9 +51,10 @@ export const StateContextProvider = ({children}) => {
         const allCampaigns = await getCampaigns();
 
         const filteredCampaigns = allCampaigns.filter((campaign) => campaign.owner === address);
-
+        console.log(allCampaigns)
         return filteredCampaigns;
     }
+
 
     const donate = async (pId, amount) => {
         const data = await contract.call('donateToCampaign', pId, {value: ethers.utils.parseEther(amount)});
@@ -73,10 +74,25 @@ export const StateContextProvider = ({children}) => {
                 donation: ethers.utils.formatEther(donations[1][i].toString())
             })
         }
-
+        
         return parsedDonations;
     }
 
+    const getAllDonators = async ()=>{
+        const allDonators = await contract.call('getAllDonators');
+        const numberOfDonations = allDonators[0][0].length;
+        const parsedAllDonators = [];
+        for (let i = 0; i < numberOfDonations; i++) {
+            parsedAllDonators.push({
+                donator: allDonators[0][0][i],
+                donation: ethers.utils.formatEther(allDonators[1][0][i].toString()),
+                title:allDonators[2][i]
+            })
+        }
+
+        console.log(parsedAllDonators)
+        return parsedAllDonators;
+    }
 
     return (
         <StateContext.Provider
@@ -88,7 +104,8 @@ export const StateContextProvider = ({children}) => {
                 getCampaigns,
                 getUserCampaigns,
                 donate,
-                getDonations
+                getDonations,
+                getAllDonators
             }}
         >
             {children}
