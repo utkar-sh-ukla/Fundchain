@@ -17,21 +17,21 @@ export const navlinks = [
         link: '/payment',
         disabled: false,
     },
-    {
-        name: 'withdraw',
-        imgUrl: withdraw,
-        link: '/',
-        disabled: true,
-    },
+    // {
+    //     name: 'withdraw',
+    //     imgUrl: withdraw,
+    //     link: '/',
+    //     disabled: true,
+    // },
     {
         name: 'profile',
         imgUrl: profile,
         link: '/profile',
     },
-    {
-        name: 'logout',
-        imgUrl: logout,
-        link: '/',
-        disabled: true,
-    },
+    // {
+    //     name: 'logout',
+    //     imgUrl: logout,
+    //     link: '/',
+    //     disabled: false,
+    // },
 ];

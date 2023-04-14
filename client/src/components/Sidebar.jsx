@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 
-import {logo, sun, moon} from '../assets';
+import {logo, sun, moon, logout} from '../assets';
 import {navlinks} from '../constants';
 
 const Icon = ({styles, name, imgUrl, isActive, disabled, handleClick}) => (
@@ -42,6 +42,11 @@ const Sidebar = () => {
 		}
 	}, [theme]);
 
+    const handleLogout = () => {
+        localStorage.clear()
+        window.location.reload();
+      };
+
     return (
         <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
             <Link to="/">
@@ -64,7 +69,9 @@ const Sidebar = () => {
                             }}
                         />
                     ))}
+                    <Icon handleClick={handleLogout} imgUrl={logout}/>
                 </div>
+
 
                 <Icon styles="bg-[#1c1c24] shadow-secondary" handleClick={handleThemeSwitch} imgUrl={theme === 'dark' ? sun : moon}/>
             </div>
